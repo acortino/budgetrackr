@@ -1,0 +1,49 @@
+<GridLayout rows=" *, auto" class="form gradient p-x-30"
+            [visibility]=" this.step === 0 ?  'visible': 'collapse'">
+    <GridLayout col="0" row="0" columns="*,auto" rows="auto, auto, auto" class="input-field" verticalAlignment="center"
+                horizontalAlignment="center">
+        <StackLayout verticalAlignment="center" horizontalAlignment="center" class="m-30" row="0" colSpan="2">
+            <Label text="Monthly fixed fees"
+                   textWrap="true"></Label>
+        </StackLayout>
+        <TextField class="input"
+                   col="0" row="1"
+                   hint="1000"
+                   keyboardType="number"
+                   fontSize="72"
+                   [(ngModel)]="this.fixed"
+                   returnKeyType="next"
+                   textAlignment="right"
+                   (returnPress)="setFixedAmount()"></TextField>
+        <Label text="€" col="1" row="1" fontSize="72" class="m-10"></Label>
+        <StackLayout class="hr-light" row="2" colSpan="2"></StackLayout>
+    </GridLayout>
+    <StackLayout class="m-20" row="1">
+        <Image class="btn btn-primary" (tap)="setFixedAmount()" src="res://next"></Image>
+    </StackLayout>
+</GridLayout>
+
+<GridLayout rows=" *, auto" class="form gradient p-x-30"
+            [visibility]=" this.step === 1 ?  'visible': 'collapse'">
+    <GridLayout col="0" row="0" columns="*,auto" rows="auto, auto, auto" class="input-field" verticalAlignment="center"
+                horizontalAlignment="center">
+        <StackLayout verticalAlignment="center" horizontalAlignment="center" class="m-30" row="0" colSpan="2">
+            <Label text="Monthly income"
+                   textWrap="true"></Label>
+        </StackLayout>
+        <TextField class="input"
+                   col="0" row="1"
+                   hint="1000"
+                   keyboardType="number"
+                   fontSize="72"
+                   [(ngModel)]="this.income"
+                   returnKeyType="next"
+                   textAlignment="right"
+                   (returnPress)="setIncome()"></TextField>
+        <Label text="€" col="1" row="1" fontSize="72" class="m-10"></Label>
+        <StackLayout class="hr-light" row="2" colSpan="2"></StackLayout>
+    </GridLayout>
+    <StackLayout class="m-20" row="1">
+        <Image class="btn btn-primary" (tap)="setIncome()" src="res://next"></Image>
+    </StackLayout>
+</GridLayout>

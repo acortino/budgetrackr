@@ -1,0 +1,32 @@
+<GridLayout rows="auto, *, auto" class="gradient">
+
+    <StackLayout row="0" horizontalAlignment="right" class="m-30" width="80" orientation="horizontal">
+        <Image src="res://refresh" class="btn" height="40" width="40" (tap)="resetValue()" row="0">
+        </Image>
+        <Image src="res://refresh" class="btn" height="40" width="40" (tap)="goTo('/settings')" row="0">
+        </Image>
+    </StackLayout>
+
+    <GridLayout class="m-30" col="1" row="1" columns="*,auto" rows="auto, auto" class="input-field"
+                verticalAlignment="center"
+                horizontalAlignment="center">
+        <Label class="input"
+               col="0" row="0"
+               fontSize="72"
+               text="{{this.currentAmount}}€"
+               textAlignment="center"
+               [(ngModel)]="this.income"></Label>
+        <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+    </GridLayout>
+
+    <GridLayout class="m-30" row="2" col="1" columns="*,*">
+        <Label class="btn-primary" (tap)="goTo('/operation/withdraw')"
+               text="-" verticalAlignment="middle"
+               col="0" horizontalAlignment="center"></Label>
+        <Label class="btn-primary" (tap)="goTo('/operation/add')"
+               text="+" verticalAlignment="middle"
+               col="1" horizontalAlignment="center"></Label>
+    </GridLayout>
+
+</GridLayout>
+
