@@ -44,7 +44,6 @@ export class SettingsComponent implements OnInit {
     setFixedAmount() {
         if (!isNaN(Number(this._fixed))) {
             if (this._fixed) {
-                setNumber("fixedAmount", Number(this._fixed));
                 this._step = 1;
             }
         } else {
@@ -58,6 +57,7 @@ export class SettingsComponent implements OnInit {
         if (!isNaN(Number(this._income))) {
             if (this._income) {
                 setNumber("income", Number(this._income));
+                setNumber("fixedAmount", Number(this._fixed));
                 setNumber("currentExpense", 0);
 
                 this.routerExtensions.navigate(["home"], {clearHistory: true});
@@ -70,4 +70,11 @@ export class SettingsComponent implements OnInit {
         }
     }
 
+    public cancel() {
+        this.routerExtensions.navigate(["home"], {clearHistory: true});
+    }
+
+    public previous_step() {
+        this._step = 0;
+    }
 }

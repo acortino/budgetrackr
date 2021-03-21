@@ -15,12 +15,17 @@
                    returnKeyType="next"
                    textAlignment="right"
                    (returnPress)="setFixedAmount()"></TextField>
-        <Label text="€" col="1" row="1" fontSize="72" class="m-10"></Label>
+        <Label text="€" col="1" row="1" class="m-10 postfix"></Label>
         <StackLayout class="hr-light" row="2" colSpan="2"></StackLayout>
     </GridLayout>
-    <StackLayout class="m-20" row="1">
-        <Image class="btn btn-primary" (tap)="setFixedAmount()" src="res://next"></Image>
-    </StackLayout>
+
+    <GridLayout class="m-30" row="1" columns="*,*">
+        <Label (tap)="cancel()" text="<" verticalAlignment="middle" col="0"
+               horizontalAlignment="center" class="icon icon-lg"></Label>
+        <Label (tap)="setFixedAmount()" text=">" verticalAlignment="middle" col="1"
+               horizontalAlignment="center" class="icon icon-lg icon-round-md"></Label>
+    </GridLayout>
+
 </GridLayout>
 
 <GridLayout rows=" *, auto" class="form gradient p-x-30"
@@ -35,15 +40,17 @@
                    col="0" row="1"
                    hint="1000"
                    keyboardType="number"
-                   fontSize="72"
                    [(ngModel)]="this.income"
                    returnKeyType="next"
                    textAlignment="right"
                    (returnPress)="setIncome()"></TextField>
-        <Label text="€" col="1" row="1" fontSize="72" class="m-10"></Label>
+        <Label text="€" col="1" row="1" class="m-10 postfix"></Label>
         <StackLayout class="hr-light" row="2" colSpan="2"></StackLayout>
     </GridLayout>
-    <StackLayout class="m-20" row="1">
-        <Image class="btn btn-primary" (tap)="setIncome()" src="res://next"></Image>
-    </StackLayout>
+    <GridLayout class="m-30" row="1" columns="*,*">
+        <Label (tap)="previous_step()" text="<" verticalAlignment="middle" col="0"
+               horizontalAlignment="center" class="icon icon-lg"></Label>
+        <Label (tap)="setIncome()" text="v" verticalAlignment="middle" col="1"
+               horizontalAlignment="center" class="icon icon-md icon-round-md"></Label>
+    </GridLayout>
 </GridLayout>

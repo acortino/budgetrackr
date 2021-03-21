@@ -11,20 +11,19 @@
                    col="0" row="1"
                    hint="20"
                    keyboardType="number"
-                   fontSize="72"
                    [(ngModel)]="this.value"
                    returnKeyType="next"
                    textAlignment="right"
                    (returnPress)="setValue()"></TextField>
-        <Label text="€" col="1" row="1" fontSize="72" class="m-10"></Label>
+        <Label text="€" col="1" row="1" class="m-10 postfix"></Label>
         <StackLayout class="hr-light" row="2" colSpan="2"></StackLayout>
     </GridLayout>
-    <GridLayout class="m-30" row="1" columns="*,*">
-        <Image src="res://previous" class="btn" col="0"
-               (tap)="this.back()" horizontalAlignment="center"></Image>
-        <Image *ngIf="this.toAdd" class="btn btn-primary" horizontalAlignment="center"
-               (tap)="setValue()" src="res://plus" col="1"></Image>
-        <Image *ngIf="!this.toAdd" class="btn btn-primary" horizontalAlignment="center"
-               (tap)="setValue()" src="res://minus" col="1"></Image>
+    <GridLayout class="m-30" row="2" col="1" columns="*,*">
+        <Label (tap)="this.back()" row="0" text="<" verticalAlignment="middle"
+               col="0" horizontalAlignment="center" class="icon icon-lg"></Label>
+        <Label *ngIf="this.toAdd" (tap)="setValue()" row="0" text="+" verticalAlignment="middle"
+               col="1" horizontalAlignment="center" class="icon icon-sm icon-round-md"></Label>
+        <Label *ngIf="!this.toAdd" (tap)="setValue()" row="0" text="-" verticalAlignment="middle"
+               col="1" horizontalAlignment="center" class="icon icon-sm icon-round-md"></Label>
     </GridLayout>
 </GridLayout>

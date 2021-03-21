@@ -13,7 +13,7 @@ export class AppComponent {
 
     ngOnInit() {
         if (!getNumber("fixedAmount") || !getNumber("income")) {
-            this.routerExtensions.navigate(["/setValue"]);
+            this.routerExtensions.navigate(["/settings"]);
         }
     }
 }
