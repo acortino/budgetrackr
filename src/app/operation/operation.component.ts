@@ -1,6 +1,6 @@
 import {Component, OnInit}    from "@angular/core";
 import {ActivatedRoute}       from "@angular/router";
-import {RouterExtensions}     from "nativescript-angular";
+import {RouterExtensions}     from "@nativescript/angular";
 import {Feedback}             from "nativescript-feedback";
 import {getNumber, setNumber} from "@nativescript/core/application-settings";
 import {OperationService}     from "~/app/operation/operation.service";

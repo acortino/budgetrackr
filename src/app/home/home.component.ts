@@ -1,6 +1,6 @@
 import {Component, OnInit}    from "@angular/core";
 import {HomeService}          from "./home.service";
-import {RouterExtensions}     from "nativescript-angular";
+import {RouterExtensions}     from "@nativescript/angular";
 import {getNumber, setNumber} from "@nativescript/core/application-settings";
 
 @Component({

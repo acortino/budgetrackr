@@ -10,8 +10,9 @@ of writing your own CSS rules. You can learn more about the
 NativeScript core theme at https://github.com/nativescript/theme
 The imported CSS rules must precede all other types of rules.
 */
-@import "~@nativescript/theme/css/core.css";
-@import "~@nativescript/theme/css/default.css";
+
+@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
 
 @font-face {
     font-family: 'icomoon';
@@ -130,3 +131,4 @@ GridLayout {
 .icon-xs {
     font-size: 24;
 }
+
