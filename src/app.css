@@ -60,20 +60,33 @@ The following CSS rule changes the font size of all Buttons that have the
 
 GridLayout {
     color: white;
-    font-family: Dosis;
+    font-family: "Party Confetti";
     font-size: 18;
 }
 
+.text-xxl{
+    font-size:96;
+}
 .text-lg {
-    font-size: 96;
+    font-size: 72;
 }
 
+.text-md {
+    font-size: 48;
+}
+
+.text-sm {
+    font-size: 32;
+}
+.text-bold {
+    font-weight: 600;
+}
 .settings .input,
 .operation .input{
     margin:0;
     padding:0;
     width: 100%;
-    placeholder-color: #43b2ca;
+    placeholder-color: rgba(255, 255, 255, 0.5);
     color: white;
     font-size: 96;
 }
@@ -95,14 +108,14 @@ GridLayout {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-round {
+.icon-round-sm {
     background: white;
     border-radius: 100%;
     color: #00B4DB;
-    padding: 10;
-    margin: 10;
-    width: 64;
-    height: 64;
+    padding: 4;
+    margin: 4;
+    width: 48;
+    height: 48;
     text-align: center;
 }
 
@@ -142,6 +155,14 @@ GridLayout {
 
 .icon-xs {
     font-size: 24;
+}
+
+.icon-xxs {
+    font-size: 16;
+}
+.off {
+    margin-right:-15;
+    margin-top: -12;
 }
 
 .border{

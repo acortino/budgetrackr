@@ -1,28 +1,31 @@
-<GridLayout rows="auto, *, auto, auto" class="form settings gradient p-x-30"
+<StackLayout class="gradient">
+<GridLayout rows="auto, *, auto, auto" class="form settings p-x-30"
             [visibility]=" this.step === 0 ?  'visible': 'collapse'">
-        <StackLayout verticalAlignment="center" horizontalAlignment="center" class="m-30" row="0" col="0">
+        <StackLayout verticalAlignment="center" horizontalAlignment="center" class="m-10 text-sm text-center text-bold" row="0" col="0">
             <Label text="Monthly fixed fees"
                    textWrap="true"></Label>
         </StackLayout>
 
     <ScrollView #scroller row="1" col="0">
         <StackLayout>
-            <GridLayout *ngFor="let fee of this.fixedAmounts index as ite" columns="*,auto" rows="auto, auto, auto"
-                        class="input-field border m-y-10 p-x-20 p-y-5"
+            <StackLayout *ngFor="let fee of this.fixedAmounts index as ite"
+                        class="input-field border m-y-10"
                         horizontalAlignment="center">
-                <GridLayout verticalAlignment="bottom" horizontalAlignment="center" class="m-y-5 m-x-2" row="0" colSpan="2"
+                <GridLayout verticalAlignment="bottom" horizontalAlignment="center" class="m-y-5 m-x-2"
                 columns="*, auto">
-                    <TextField class="input"
-                               [(ngModel)]="fee.label"
-                               fontSize="20"
-                               col="0"
-                               hint="Fixed fee label"></TextField>
-
-                    <Label (tap)="removeFee(fee)" text="x" verticalAlignment="top" col="1"
-                           horizontalAlignment="right" class="m-l-10 icon icon-xs font-weight-normal"></Label>
+                    <Label *ngIf="this.fixedAmounts.length > 1" (tap)="removeFee(fee)" text="T" verticalAlignment="top" col="1"
+                           horizontalAlignment="right" class="m-5 icon icon-xxs"></Label>
                 </GridLayout>
+                <GridLayout columns="*,10,*,auto" rows="auto"
+                            class="input-field m-5 p-x-10"
+                            horizontalAlignment="center">
                 <TextField class="input"
-                           col="0" row="1"
+                           [(ngModel)]="fee.label"
+                           fontSize="20"
+                           col="0"
+                           hint="Fixed fee label"></TextField>
+                <TextField class="input"
+                           col="2"
                            hint="200"
                            keyboardType="number"
                            fontSize="46"
@@ -30,24 +33,25 @@
                            [(ngModel)]="fee.amount"
                            returnKeyType="next"
                            textAlignment="right"></TextField>
-                <Label text="€" col="1" row="1" class="postfix p-b-12"></Label>
-                <StackLayout row="2" class="error" horizontalAlignment="center">
+                <Label text="€" col="3"class="postfix p-b-20"></Label>
+                </GridLayout>
+                <StackLayout class="error" horizontalAlignment="center" >
                     <Label *ngFor="let error of this.errors[ite]" [text]="error"></Label>
                 </StackLayout>
-            </GridLayout>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 
     <GridLayout class="m-5" row="2" columns="*">
-        <Label (tap)="addFixedAmount()" text="+" verticalAlignment="middle" col="0"
-               horizontalAlignment="center" class="icon icon-md icon-round-md"></Label>
+        <Label (tap)="addFixedAmount()" text="P" verticalAlignment="middle" col="0"
+               horizontalAlignment="center" class="icon icon-sm icon-round-md"></Label>
     </GridLayout>
 
     <GridLayout class="m-5" row="3" columns="*,*">
-        <Label (tap)="cancel()" text="<" verticalAlignment="middle" col="0"
-               horizontalAlignment="center" class="icon icon-md"></Label>
-        <Label (tap)="setFixedAmount()" text=">" verticalAlignment="middle" col="1"
-               horizontalAlignment="center" class="icon icon-md icon-round-md"></Label>
+        <Label (tap)="cancel()" text="X" verticalAlignment="middle" col="0"
+               horizontalAlignment="left" class="icon icon-md"></Label>
+        <Label (tap)="setFixedAmount()" text="V" verticalAlignment="middle" col="1"
+               horizontalAlignment="right" class="icon icon-md icon-round-md"></Label>
     </GridLayout>
 
 </GridLayout>
@@ -73,9 +77,10 @@
         <StackLayout class="hr-light" row="2" colSpan="2"></StackLayout>
     </GridLayout>
     <GridLayout class="m-30" row="1" columns="*,*">
-        <Label (tap)="previous_step()" text="<" verticalAlignment="middle" col="0"
+        <Label (tap)="previous_step()" text="X" verticalAlignment="middle" col="0"
                horizontalAlignment="center" class="icon icon-lg"></Label>
-        <Label (tap)="setIncome()" text="v" verticalAlignment="middle" col="1"
+        <Label (tap)="setIncome()" text="V" verticalAlignment="middle" col="1"
                horizontalAlignment="center" class="icon icon-md icon-round-md"></Label>
     </GridLayout>
 </GridLayout>
+</StackLayout>
