@@ -1,16 +1,16 @@
 <GridLayout rows="auto, *, auto" class="gradient">
 
     <StackLayout row="0" horizontalAlignment="right" class="m-30" width="150" orientation="horizontal">
-        <Label (tap)="resetValue()" row="0" class="icon icon-xs icon-round" text="r"></Label>
-        <Label (tap)="goTo('/settings')" row="0" class="icon icon-xs icon-round" text="s"></Label>
+        <Label (tap)="resetValue()" row="0" class="icon icon-sm icon-round m-x-10" text="R"></Label>
+        <Label (tap)="goTo('/settings')" row="0" class="icon icon-sm icon-round m-x-10" text="S"></Label>
     </StackLayout>
 
     <GridLayout class="m-30" col="1" row="1" columns="*,auto" rows="auto, auto, auto" class="input-field"
                 verticalAlignment="center"
                 horizontalAlignment="center">
         <Label col="0" row="0" text="You can still spend"
-               textAlignment="center"></Label>
-        <Label class="text-lg"
+               textAlignment="center" class="p-10"></Label>
+        <Label class="text-xxl"
                col="0" row="1"
                text="{{this.currentAmount}}€"
                textAlignment="center"
@@ -20,10 +20,10 @@
     </GridLayout>
 
     <GridLayout class="m-30" row="2" col="1" columns="*,*">
-        <Label (tap)="goTo('/operation/withdraw')" row="0" text="-" verticalAlignment="middle"
-               col="0" horizontalAlignment="center" class="icon icon-sm icon-round-md"></Label>
-        <Label (tap)="goTo('/operation/add')" row="0" text="+" verticalAlignment="middle"
-               col="1" horizontalAlignment="center" class="icon icon-sm icon-round-md"></Label>
+        <Label (tap)="goTo('/operation/withdraw')" row="0" text="M" verticalAlignment="middle"
+               col="0" horizontalAlignment="center" class="icon icon-round-lg icon-md"></Label>
+        <Label (tap)="goTo('/operation/add')" row="0" text="P" verticalAlignment="middle"
+               col="1" horizontalAlignment="center" class="icon icon-md icon-round-lg"></Label>
     </GridLayout>
 
 </GridLayout>

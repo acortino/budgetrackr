@@ -1,5 +1,5 @@
 {
-  "name": "billizy",
+  "name": "budgetrackr",
   "main": "./src/main.ts",
   "version": "1.0.0",
   "author": "acortino <hello@acortino.me>",
@@ -14,7 +14,7 @@
     "@angular/platform-browser-dynamic": "~15.1.4",
     "@angular/router": "~15.1.4",
     "@nativescript/angular": "~15.0.0",
-    "@nativescript/core": "~8.4.0",
+    "@nativescript/core": "~8.4.3",
     "@nativescript/theme": "~3.0.2",
     "nativescript-feedback": "^2.0.0",
     "reflect-metadata": "~0.1.13",

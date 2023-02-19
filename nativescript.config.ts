@@ -1,7 +1,7 @@
 import { NativeScriptConfig } from '@nativescript/core';
 
 export default {
-  id: 'me.acortino.billizy',
+  id: 'me.acortino.budgetrackr',
   appPath: 'src',
   appResourcesPath: 'App_Resources',
   android: {
