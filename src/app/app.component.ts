@@ -1,6 +1,6 @@
 import {Component}        from "@angular/core";
-import {RouterExtensions} from "@nativescript/angular";
-import {getNumber}        from "@nativescript/core/application-settings";
+import {RouterExtensions}     from "@nativescript/angular";
+import {getNumber, getString} from "@nativescript/core/application-settings";
 
 @Component({
                selector   : "ns-app",
@@ -12,7 +12,7 @@ export class AppComponent {
     }
 
     ngOnInit() {
-        if (!getNumber("fixedAmount") || !getNumber("income")) {
+        if (!getString("fixedFees") || !getNumber("income")) {
             this.routerExtensions.navigate(["/settings"]);
         }
     }

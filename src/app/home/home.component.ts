@@ -1,7 +1,7 @@
 import {Component, OnInit}    from "@angular/core";
 import {HomeService}          from "./home.service";
-import {RouterExtensions}     from "@nativescript/angular";
-import {getNumber, setNumber} from "@nativescript/core/application-settings";
+import {RouterExtensions}                from "@nativescript/angular";
+import {getNumber, getString, setNumber} from "@nativescript/core/application-settings";
 
 @Component({
                selector   : "ns-home",
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
     constructor(private homeService: HomeService,
                 private routerExtensions: RouterExtensions) {
         this._income         = getNumber("income");
-        this._fixedAmount    = getNumber("fixedAmount");
+        this._fixedAmount    = JSON.parse(getString("fixedFees")).reduce((sum, currentValue) => sum + Number(currentValue._amount), 0);
         this._currentExpense = getNumber("currentExpense");
         this._currentAmount  = this._income - (this._fixedAmount + this._currentExpense);
 
