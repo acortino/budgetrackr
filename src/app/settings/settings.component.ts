@@ -1,8 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 
-import {RouterExtensions} from "nativescript-angular";
 import {setNumber}        from "@nativescript/core/application-settings";
 import {Feedback}         from "nativescript-feedback";
+import {RouterExtensions}                        from "@nativescript/angular";
 
 @Component({
                selector   : "ns-settings",

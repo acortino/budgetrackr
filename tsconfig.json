@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
       "module": "esnext",
-      "target": "es2017",
+      "target": "es2020",
       "moduleResolution": "node",
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
@@ -9,7 +9,7 @@
       "noEmitOnError": true,
       "skipLibCheck": true,
       "lib": [
-        "es2018", "es2017", "dom", "es6"
+        "es2018", "es2017", "dom", "es6", "ESNext"
       ],
       "baseUrl": ".",
       "paths": {
@@ -25,7 +25,8 @@
   ],
   "files": [
     "./references.d.ts",
-    "./src/main.ts"
+    "./src/main.ts",
+    "./src/polyfills.ts"
   ],
   "exclude": [
       "node_modules",
