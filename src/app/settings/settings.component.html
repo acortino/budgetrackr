@@ -1,34 +1,58 @@
-<GridLayout rows=" *, auto" class="form gradient p-x-30"
+<GridLayout rows="auto, *, auto, auto" class="form settings gradient p-x-30"
             [visibility]=" this.step === 0 ?  'visible': 'collapse'">
-    <GridLayout col="0" row="0" columns="*,auto" rows="auto, auto, auto" class="input-field" verticalAlignment="center"
-                horizontalAlignment="center">
-        <StackLayout verticalAlignment="center" horizontalAlignment="center" class="m-30" row="0" colSpan="2">
+        <StackLayout verticalAlignment="center" horizontalAlignment="center" class="m-30" row="0" col="0">
             <Label text="Monthly fixed fees"
                    textWrap="true"></Label>
         </StackLayout>
-        <TextField class="input"
-                   col="0" row="1"
-                   hint="1000"
-                   keyboardType="number"
-                   fontSize="72"
-                   [(ngModel)]="this.fixed"
-                   returnKeyType="next"
-                   textAlignment="right"
-                   (returnPress)="setFixedAmount()"></TextField>
-        <Label text="€" col="1" row="1" class="m-10 postfix"></Label>
-        <StackLayout class="hr-light" row="2" colSpan="2"></StackLayout>
+
+    <ScrollView #scroller row="1" col="0">
+        <StackLayout>
+            <GridLayout *ngFor="let fee of this.fixedAmounts index as ite" columns="*,auto" rows="auto, auto, auto"
+                        class="input-field border m-y-10 p-x-20 p-y-5"
+                        horizontalAlignment="center">
+                <GridLayout verticalAlignment="bottom" horizontalAlignment="center" class="m-y-5 m-x-2" row="0" colSpan="2"
+                columns="*, auto">
+                    <TextField class="input"
+                               [(ngModel)]="fee.label"
+                               fontSize="20"
+                               col="0"
+                               hint="Fixed fee label"></TextField>
+
+                    <Label (tap)="removeFee(fee)" text="x" verticalAlignment="top" col="1"
+                           horizontalAlignment="right" class="m-l-10 icon icon-xs font-weight-normal"></Label>
+                </GridLayout>
+                <TextField class="input"
+                           col="0" row="1"
+                           hint="200"
+                           keyboardType="number"
+                           fontSize="46"
+                           ngDefaultControl
+                           [(ngModel)]="fee.amount"
+                           returnKeyType="next"
+                           textAlignment="right"></TextField>
+                <Label text="€" col="1" row="1" class="postfix p-b-12"></Label>
+                <StackLayout row="2" class="error" horizontalAlignment="center">
+                    <Label *ngFor="let error of this.errors[ite]" [text]="error"></Label>
+                </StackLayout>
+            </GridLayout>
+        </StackLayout>
+    </ScrollView>
+
+    <GridLayout class="m-5" row="2" columns="*">
+        <Label (tap)="addFixedAmount()" text="+" verticalAlignment="middle" col="0"
+               horizontalAlignment="center" class="icon icon-md icon-round-md"></Label>
     </GridLayout>
 
-    <GridLayout class="m-30" row="1" columns="*,*">
+    <GridLayout class="m-5" row="3" columns="*,*">
         <Label (tap)="cancel()" text="<" verticalAlignment="middle" col="0"
-               horizontalAlignment="center" class="icon icon-lg"></Label>
+               horizontalAlignment="center" class="icon icon-md"></Label>
         <Label (tap)="setFixedAmount()" text=">" verticalAlignment="middle" col="1"
-               horizontalAlignment="center" class="icon icon-lg icon-round-md"></Label>
+               horizontalAlignment="center" class="icon icon-md icon-round-md"></Label>
     </GridLayout>
 
 </GridLayout>
 
-<GridLayout rows=" *, auto" class="form gradient p-x-30"
+<GridLayout rows=" *, auto" class="form gradient settings p-x-30"
             [visibility]=" this.step === 1 ?  'visible': 'collapse'">
     <GridLayout col="0" row="0" columns="*,auto" rows="auto, auto, auto" class="input-field" verticalAlignment="center"
                 horizontalAlignment="center">
@@ -41,6 +65,7 @@
                    hint="1000"
                    keyboardType="number"
                    [(ngModel)]="this.income"
+                   ngDefaultControl
                    returnKeyType="next"
                    textAlignment="right"
                    (returnPress)="setIncome()"></TextField>

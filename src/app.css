@@ -68,7 +68,10 @@ GridLayout {
     font-size: 96;
 }
 
-.input {
+.settings .input,
+.operation .input{
+    margin:0;
+    padding:0;
     width: 100%;
     placeholder-color: #43b2ca;
     color: white;
@@ -76,12 +79,11 @@ GridLayout {
 }
 
 .postfix {
-    font-size: 72;
+    font-size: 46;
 }
 
 .icon {
     font-family: icomoon, 'icomoon';
-    /* use !important to prevent issues with browser extensions that change fonts */
     speak: never;
     font-style: normal;
     font-weight: normal;
@@ -89,7 +91,6 @@ GridLayout {
     text-transform: none;
     line-height: 1;
 
-    /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -106,6 +107,17 @@ GridLayout {
 }
 
 .icon-round-md {
+    background: white;
+    border-radius: 100%;
+    color: #00B4DB;
+    padding: 6;
+    margin: 6;
+    width: 72;
+    height: 72;
+    text-align: center;
+}
+
+.icon-round-lg {
     background: white;
     border-radius: 100%;
     color: #00B4DB;
@@ -130,5 +142,16 @@ GridLayout {
 
 .icon-xs {
     font-size: 24;
+}
+
+.border{
+    border-color: white;
+    border-width: 1px;
+    border-radius:20;
+}
+.error{
+    font-weight: 900;
+    color: #fca311;
+    text-align: center;
 }
 
